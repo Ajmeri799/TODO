@@ -1,8 +1,47 @@
-# React + Vite
+# To-Do & Employee List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application is built using React and includes 
+a To-Do List for managing daily tasks
+and an Employee List that displays employee details fetched from an external API.
+Features include adding, updating, and removing tasks from the To-Do list, as well as displaying and removing employees from the list.
 
-Currently, two official plugins are available:
+```dotnetcli
+src/
+│
+├── app/
+│    ├── store.js   
+|
+├── components/
+│   ├── Employee/
+│        ├── Employee.jsx      
+│   ├── Header
+│       ├── Header.jsx     
+│   ├── Home.jsx
+│        ├── Home.jsx
+│     ├── Todo.jsx
+│          ├── Todos.jsx
+│          ├── AddTodo.jsx      
+│
+├── features/todo
+│   ├── todoSlice.js     
+│   ├── employeeSlice.js 
+│
+├── App.jsx
+├── Layout.jsx                
+├── main.jsx  
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+
+-    Install dependencies:
+
+```bash
+npm install
+```
+-    Running the Application
+     To start the application in development mode:
+
+```bash
+npm run dev
+```
+### Open your browser and navigate to http://localhost:5173.
