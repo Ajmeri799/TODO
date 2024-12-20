@@ -24,7 +24,14 @@ const router = createBrowserRouter(
           </Provider>
         }
       />
-      <Route path="Employee" element={<Employee />} />
+      <Route
+        path="Employee"
+        element={
+          <Provider store={store}>
+            <Employee />
+          </Provider>
+        }
+      />
     </Route>
   )
 );

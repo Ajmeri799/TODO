@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeTodo, updateTodo } from "../../features/todo/todoSlice";
 
 function Todos() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todo.todos);
   const dispatch = useDispatch();
   const [updatedText, setUpdatedText] = useState("");
   const [todoId, setTodoId] = useState(null);
@@ -23,7 +23,7 @@ function Todos() {
       <ul className="list-none ">
         {todos.map((todo) => (
           <li
-            className="mt-4   flex justify-between w-[28rem]  bg-zinc-800 px-4 py-2 rounded"
+            className="mt-4 flex justify-between md:w-[28rem]  bg-zinc-800 px-4 py-2 rounded"
             key={todo.id}
           >
             {todoId === todo.id ? (
@@ -38,7 +38,7 @@ function Todos() {
             )}
             {/* <div className="text-white">{todo.text}</div> */}
 
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 px-5">
               {todoId === todo.id ? (
                 <button
                   onClick={handleSave}

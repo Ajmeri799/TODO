@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import { fetchEmployees } from "../../features/todo/employeeSlice";
+import { useSelector, useDispatch } from "react-redux";
 const Employee = () => {
-  const [employees, setEmployees] = useState([]);
+  const dispatch = useDispatch();
+  const employees = useSelector((state) => state.employee.employees || []);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const fetchEmployees = async () => {
-      try {
-        const response = await axios.get("https://api.restful-api.dev/objects");
-        setEmployees(response.data);
-      } catch (error) {
-        console.error("Error fetching employees:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEmployees();
-  }, []);
+    try {
+      dispatch(fetchEmployees());
+    } catch (error) {
+      console.error("Error fetching employees:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [dispatch]);
 
   if (loading) return <p>Loading...</p>;
 
@@ -31,7 +26,7 @@ const Employee = () => {
             className="mt-4 w-96  flex justify-center items-center bg-zinc-800 px-4 py-2 rounded"
             key={employee.id}
           >
-            {employee.name} - {employee.position}
+            NAME :{employee.first_name} {employee.last_name}
           </li>
         ))}
       </ul>
